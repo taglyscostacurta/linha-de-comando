@@ -42,13 +42,17 @@ func Gerar() *cli.App {
 func buscarIps(c *cli.Context) {
 	host := c.String("host")
 
+	fmt.Println("Aqui estão os IPs do host:")
+	fmt.Println(" ")
 	ips, erro := net.LookupIP(host)
 	if erro != nil {
 		log.Fatal(erro)
 	}
 
 	for _, ip := range ips {
+
 		fmt.Println(ip)
+
 	}
 
 }
@@ -56,6 +60,8 @@ func buscarIps(c *cli.Context) {
 func buscarServidores(c *cli.Context) {
 	host := c.String("host")
 
+	fmt.Println("Aqui estão os Servidores do host:")
+	fmt.Println(" ")
 	servidores, erro := net.LookupNS(host)
 	if erro != nil {
 		log.Fatal(erro)
